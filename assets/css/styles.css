@@ -1,0 +1,36 @@
+#loginpage{
+	background-image: url("https://wallpapercave.com/wp/wp2141398.png");
+	background-repeat: no-repeat;
+	height: 93%;
+
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 70%;
+    height: 80%;
+    margin-left: 20%;
+    margin-top: 10%;
+    border-radius: 5px;
+    opacity: 0.9;
+    padding-top: 10%;
+
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#title{
+	/*margin-left: 2%;*/
+	margin-bottom: 10%;
+}
+
+#passwordpart{
+	margin-top: 5%;
+}
+
+#submitBtn{
+	margin-left: 83%;
+}
