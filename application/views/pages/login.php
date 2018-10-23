@@ -8,19 +8,23 @@
     	  		
     	  		<h2 id="title">Sign in.</h2>
 
-    	  		<form>
+    	  		<form action="/stumble/loaduser" method="post">
 				  <fieldset>
 				    <div class="form-group">
 				      <label for="InputEmail1">Email address.</label>
-				      <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				      <input type="email" name="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
 				    </div>
 				    <div id="passwordpart" class="form-group">
 				      <label for="exampleInputPassword1">Password.</label>
-				      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				      <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 				    </div>
-				    <button type="submit" id="submitBtn" class="btn btn-primary">Continue.</button>
+				
+
+				  
 				  </fieldset>
 				</form>
+				 <a class="navbar-brand" href="/stumble/posts"> <button type="submit" value="Add Records" id="submitBtn" class="btn btn-primary">Continue.</button></a>
+				<!-- <a class="navbar-brand" href="/stumble/signup"><button id="submitBtn" class="btn btn-primary" >Sign up.</button></a> -->
 
     	  	</div>
     	</div>
