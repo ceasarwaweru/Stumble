@@ -1,0 +1,105 @@
+var barclays = ["Hurlingham", "Queens Way", "Nairobi West", "Yaya Center"];
+var equity = ["Westlands", "Moi Avenue", "KNUT House", "Mundi Mbingu St", "Mama Ngina St."];
+var kcb = ["Buruburu Branch", "Capitol Hill Branch", "Eastleigh Branch", "Kencom Branch", "River Road Branch"];
+var cfc = ["Kenyattta Avenue", "Harambee Avenue", "Chiromo", "Galleria Mall", "Indusrial Area"];
+var stanchart = ["Moi avenue", "United Nations Avenue", "Gandhi Avenue, Westlands", "Mwanzi Road, Westlands", "Koinange Street"];
+var empty = [""];
+var chosen=true;
+
+$(document).ready(function(){
+    
+    /******************Question 1**********************************/
+    
+    $("#bankOptions").click(function(){
+        var bank = $("#bankOptions option:selected").text();
+         if(bank === "Barclays Bank"){
+             chosen=true;
+            populate(barclays, "Barclays Bank");
+            
+         }
+         
+         else if(bank === "Equity Bank"){
+             chosen=true;
+             populate(equity, "Equity Bank");
+             
+         }
+         
+         else if(bank === "KCB"){
+            chosen=true; 
+            populate(kcb, "KCB");
+             
+        }
+         
+         else if(bank === "CFC Stanbic"){
+             chosen=true;
+            populate(cfc, "CFC Stanbic");
+            
+         }
+         
+         
+        else if(bank === "Standard Chartered Bank"){
+             chosen=true;
+            populate(stanchart, "Standard Chartered Bank");
+            
+        }
+        
+        else{
+            chosen=false;
+            populate(empty, "Please choose a bank");      
+            
+        }
+        
+        
+    });
+    
+    /******************Question 2**********************************/
+   $("#displayTimeBtn").click(function(){
+      $.get("PHP/date-time.php", function(data){
+          $("#displayTime").html(data);
+      }); 
+   }); 
+   
+   
+   
+    /*****************Question 3**************************/
+    var url="index.html";
+    var nameText= $("#name").val();
+    
+    
+    $("#sendBtn").click(function(){
+        $.post(url, {name:nameText}, function(data, status){
+            var data="Welcome "+nameText;
+            alert(data+"\nStatus: "+status);
+        });
+    });
+    
+    
+    /***************Question 4*************************
+    This is the listener-->Specify which button it should be in
+     **/
+    $("#slideUp").click(function(){
+       $("p").slideUp("slow");
+   }); 
+   
+   $("#slideDown").click(function(){
+       $("p").slideDown("fast");
+   });
+});
+
+function populate(branch, bank){
+   if(!chosen){
+        var options="<option value='None'>"+bank+"</option>"; 
+    }
+    
+    else{
+       var options="<option value='None'>"+bank+" branches"+"</option>";
+ 
+    }
+    
+    for(var i=0; i<branch.length; i++)
+    {  
+        options += "<option value="+branch[i]+">"+branch[i]+"</option>";  
+    }
+    
+    document.getElementById("branchOptions").innerHTML=options;
+}
